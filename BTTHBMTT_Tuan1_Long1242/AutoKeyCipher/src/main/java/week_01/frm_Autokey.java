@@ -6,18 +6,21 @@ package week_01;
 import java.io.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.util.*;
 /**
  *
  * @author nierlynguyen
  */
-public class frm_Caesar extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Caesar.class.getName());
+public class frm_Autokey extends javax.swing.JFrame {
+    private AutokeyCipher akc;
+
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Autokey.class.getName());
 
     /**
      * Creates new form frm_Caesar
      */
-    public frm_Caesar() {
+    public frm_Autokey() {
+        akc = new AutokeyCipher();
         initComponents();
     }
 
@@ -75,7 +78,7 @@ public class frm_Caesar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Courier 10 Pitch", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Caesar Cipher Demo");
+        jLabel1.setText("Transposition Cipher Demo");
 
         jLabel2.setText("Plaintext:");
 
@@ -109,7 +112,7 @@ public class frm_Caesar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(132, 132, 132))
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,27 +143,29 @@ public class frm_Caesar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_encryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_encryptActionPerformed
-        try {
-            String plaintext = txt_plaintext.getText();
-            int key = Integer.parseInt(txt_key.getText());
-            String ciphertext = CaesarLong1242.encrypt(plaintext, key);
+        String plaintext = txt_plaintext.getText();
+        String keyText = txt_key.getText();
+
+        if (!plaintext.isEmpty() && !keyText.isEmpty()) { 
+            String ciphertext = akc.encrypt(plaintext, keyText);
             JOptionPane.showMessageDialog(this, "Encryption successful!");
             txt_ciphertext.setText(ciphertext);
-            saveToFile(ciphertext);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid key. Please enter a valid integer.");
+            // saveToFile(ciphertext);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter both plaintext and key.");
         }
     }//GEN-LAST:event_btn_encryptActionPerformed
 
     private void btn_decryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_decryptActionPerformed
-        try {
-            String ciphertext = txt_ciphertext.getText();
-            int key = Integer.parseInt(txt_key.getText());
-            String plaintext = CaesarLong1242.decrypt(ciphertext, key);
+        String ciphertext = txt_ciphertext.getText();
+        String keyText = txt_key.getText();
+
+        if (!ciphertext.isEmpty() && !keyText.isEmpty()) { 
+            String plaintext = akc.decrypt(ciphertext, keyText);
             JOptionPane.showMessageDialog(this, "Decryption successful!");
             txt_plaintext.setText(plaintext);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid key. Please enter a valid integer.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter both ciphertext and key.");
         }
     }//GEN-LAST:event_btn_decryptActionPerformed
 
@@ -214,7 +219,7 @@ public class frm_Caesar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frm_Caesar().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new frm_Autokey().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

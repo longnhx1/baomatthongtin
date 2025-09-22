@@ -10,14 +10,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author nierlynguyen
  */
-public class frm_Caesar extends javax.swing.JFrame {
+public class frm_RailFence extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Caesar.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_RailFence.class.getName());
 
     /**
      * Creates new form frm_Caesar
      */
-    public frm_Caesar() {
+    public frm_RailFence() {
         initComponents();
     }
 
@@ -75,7 +75,7 @@ public class frm_Caesar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Courier 10 Pitch", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Caesar Cipher Demo");
+        jLabel1.setText("RailFance Cipher Demo");
 
         jLabel2.setText("Plaintext:");
 
@@ -143,7 +143,7 @@ public class frm_Caesar extends javax.swing.JFrame {
         try {
             String plaintext = txt_plaintext.getText();
             int key = Integer.parseInt(txt_key.getText());
-            String ciphertext = CaesarLong1242.encrypt(plaintext, key);
+            String ciphertext = RailFanceCipher.encrypt(plaintext, key);
             JOptionPane.showMessageDialog(this, "Encryption successful!");
             txt_ciphertext.setText(ciphertext);
             saveToFile(ciphertext);
@@ -156,7 +156,7 @@ public class frm_Caesar extends javax.swing.JFrame {
         try {
             String ciphertext = txt_ciphertext.getText();
             int key = Integer.parseInt(txt_key.getText());
-            String plaintext = CaesarLong1242.decrypt(ciphertext, key);
+            String plaintext = RailFanceCipher.decrypt(ciphertext, key);
             JOptionPane.showMessageDialog(this, "Decryption successful!");
             txt_plaintext.setText(plaintext);
         } catch (NumberFormatException e) {
@@ -214,7 +214,7 @@ public class frm_Caesar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frm_Caesar().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new frm_RailFence().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

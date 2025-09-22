@@ -10,14 +10,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author nierlynguyen
  */
-public class frm_Caesar extends javax.swing.JFrame {
+public class frm_Playfair extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Caesar.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Playfair.class.getName());
 
     /**
      * Creates new form frm_Caesar
      */
-    public frm_Caesar() {
+    public frm_Playfair() {
         initComponents();
     }
 
@@ -35,6 +35,8 @@ public class frm_Caesar extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_key = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
+        txt_keymatrix = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
         txt_ciphertext = new javax.swing.JTextPane();
         btn_encrypt = new javax.swing.JButton();
         btn_decrypt = new javax.swing.JButton();
@@ -43,6 +45,8 @@ public class frm_Caesar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btn_generatekeymatrix = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +54,9 @@ public class frm_Caesar extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(txt_key);
 
-        jScrollPane3.setViewportView(txt_ciphertext);
+        jScrollPane3.setViewportView(txt_keymatrix);
+
+        jScrollPane4.setViewportView(txt_ciphertext);
 
         btn_encrypt.setText("Encrypt");
         btn_encrypt.addActionListener(new java.awt.event.ActionListener() {
@@ -75,48 +81,60 @@ public class frm_Caesar extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Courier 10 Pitch", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Caesar Cipher Demo");
+        jLabel1.setText("PlayFair Cipher Demo");
 
         jLabel2.setText("Plaintext:");
 
         jLabel3.setText("Key:");
 
-        jLabel4.setText("Ciphertext:");
+        jLabel4.setText("Key Matrix:");
+
+        jLabel5.setText("Ciphertext:");
+
+        btn_generatekeymatrix.setText("Generate Key Matrix");
+        btn_generatekeymatrix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generatekeymatrixActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_generatekeymatrix)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_encrypt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_decrypt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_openciphertextfile, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 2, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addComponent(btn_openciphertextfile))
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane4))
                 .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(132, 132, 132))
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -128,39 +146,49 @@ public class frm_Caesar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_encrypt)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_decrypt)
-                    .addComponent(btn_openciphertextfile))
-                .addGap(37, 37, 37))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_encrypt)
+                        .addComponent(btn_openciphertextfile))
+                    .addComponent(btn_generatekeymatrix))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_encryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_encryptActionPerformed
-        try {
-            String plaintext = txt_plaintext.getText();
-            int key = Integer.parseInt(txt_key.getText());
-            String ciphertext = CaesarLong1242.encrypt(plaintext, key);
+        String plaintext = txt_plaintext.getText();
+        String key = txt_key.getText();
+
+        if (!plaintext.isEmpty() && !key.isEmpty()) {
+            PlayFairCipher playFairCipher = new PlayFairCipher(key);
+            String ciphertext = playFairCipher.encrypt(plaintext);
             JOptionPane.showMessageDialog(this, "Encryption successful!");
             txt_ciphertext.setText(ciphertext);
-            saveToFile(ciphertext);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid key. Please enter a valid integer.");
+            // saveToFile(ciphertext);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter both plaintext and key.");
         }
     }//GEN-LAST:event_btn_encryptActionPerformed
 
     private void btn_decryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_decryptActionPerformed
-        try {
-            String ciphertext = txt_ciphertext.getText();
-            int key = Integer.parseInt(txt_key.getText());
-            String plaintext = CaesarLong1242.decrypt(ciphertext, key);
+        String ciphertext = txt_ciphertext.getText();
+        String key = txt_key.getText();
+
+        if (!ciphertext.isEmpty() && !key.isEmpty()) {
+            PlayFairCipher playFairCipher = new PlayFairCipher(key);
+            String decryptedText = playFairCipher.decrypt(ciphertext);
             JOptionPane.showMessageDialog(this, "Decryption successful!");
-            txt_plaintext.setText(plaintext);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid key. Please enter a valid integer.");
+            txt_plaintext.setText(decryptedText);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter both ciphertext and key.");
         }
     }//GEN-LAST:event_btn_decryptActionPerformed
 
@@ -171,12 +199,23 @@ public class frm_Caesar extends javax.swing.JFrame {
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             try (BufferedReader buffteredReader = new BufferedReader(new FileReader(fileChooser.getSelectedFile()))) {
                 JOptionPane.showMessageDialog(this, "File opened successfully!");
-                txt_ciphertext.read(buffteredReader, null); 
+                txt_keymatrix.read(buffteredReader, null); 
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this, "Error reading file: " + e.getMessage());
             }
         }
     }//GEN-LAST:event_btn_openciphertextfileActionPerformed
+
+    private void btn_generatekeymatrixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generatekeymatrixActionPerformed
+        String key = txt_key.getText();
+        if (!key.isEmpty()) {
+            PlayFairCipher playFairCipher = new PlayFairCipher(key);
+            String keyMatrixStr = playFairCipher.getKeyMatrixString();
+            txt_keymatrix.setText(keyMatrixStr);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter a key.");
+        }
+    }//GEN-LAST:event_btn_generatekeymatrixActionPerformed
 
     private void saveToFile(String content) {
         JFileChooser fileChooser = new JFileChooser();
@@ -214,22 +253,26 @@ public class frm_Caesar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frm_Caesar().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new frm_Playfair().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_decrypt;
     private javax.swing.JButton btn_encrypt;
+    private javax.swing.JButton btn_generatekeymatrix;
     private javax.swing.JButton btn_openciphertextfile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextPane txt_ciphertext;
     private javax.swing.JTextPane txt_key;
+    private javax.swing.JTextPane txt_keymatrix;
     private javax.swing.JTextPane txt_plaintext;
     // End of variables declaration//GEN-END:variables
 }
