@@ -18,7 +18,7 @@
 
 ## Yêu cầu
 
-- Java 8 trở lên [Downloads](https://www.oracle.com/java/technologies/downloads/)
+- Java 8 trở lên - JDK [Downloads](https://www.oracle.com/java/technologies/downloads/)
 - Netbeans [Downloads](https://netbeans.apache.org/front/main/download/nb25/)
 
 ## Cấu trúc thư mục
