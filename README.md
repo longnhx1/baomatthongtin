@@ -4,10 +4,10 @@
 
 ## Mô tả
 
-**Bảo Mật Thông Tin** là bộ mã nguồn được phát triển bằng Java nhằm mục đích gồm:
+**Giới thiệu**:
 
-- Giới thiệu các khái niệm cơ bản về bảo mật thông tin.  
-- Ví dụ và thực hành về các kĩ thuật bảo mật như mã hóa, hashed, xác thực, phân quyền, v.v.  
+- Tài nguyên của bài Thực hành Bảo mật thông tin!  
+- Tài nguyên bao gồm các bài mã hoá theo chương trình của đại học Hutech (năm 2025).
 - Phát hiện và xử lý các lỗ hổng phổ biến (ví dụ: SQL Injection, XSS, lỗi cấu hình, quản lý session, v.v.).
 
 ## Mục đích
