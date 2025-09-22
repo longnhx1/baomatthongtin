@@ -8,12 +8,11 @@
 
 - Tài nguyên của bài Thực hành Bảo mật thông tin!  
 - Tài nguyên bao gồm các bài mã hoá theo tài liệu CMP382 của đại học Hutech (năm 2025).
-- Phát hiện và xử lý các lỗ hổng phổ biến (ví dụ: SQL Injection, XSS, lỗi cấu hình, quản lý session, v.v.).
 
 ## Mục đích
 
 - Học tập và thực hành bảo mật phần mềm.  
-- Cung cấp tài liệu mẫu cho các khóa học, workshop về bảo mật.  
+- Cung cấp tài liệu mẫu CMP382.
 - Đóng góp mã nguồn mở để mọi người cùng học hỏi.
 
 ## Yêu cầu
@@ -22,4 +21,5 @@
 - Netbeans [Downloads](https://netbeans.apache.org/front/main/download/nb25/)
 
 ## Cấu trúc thư mục
+
 
