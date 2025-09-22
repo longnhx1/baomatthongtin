@@ -7,7 +7,7 @@
 **Giới thiệu**:
 
 - Tài nguyên của bài Thực hành Bảo mật thông tin!  
-- Tài nguyên bao gồm các bài mã hoá theo chương trình của đại học Hutech (năm 2025).
+- Tài nguyên bao gồm các bài mã hoá theo tài liệu CMP382 của đại học Hutech (năm 2025).
 - Phát hiện và xử lý các lỗ hổng phổ biến (ví dụ: SQL Injection, XSS, lỗi cấu hình, quản lý session, v.v.).
 
 ## Mục đích
@@ -18,9 +18,8 @@
 
 ## Yêu cầu
 
-- Java 8 trở lên  
-- Maven / Gradle (nếu sử dụng)  
-- Các thư viện/bộ phụ thuộc được khai báo trong file cấu hình build  
+- Java 8 trở lên [Downloads](https://www.oracle.com/java/technologies/downloads/)
+- Netbeans [Downloads](https://netbeans.apache.org/front/main/download/nb25/)
 
 ## Cấu trúc thư mục
 
