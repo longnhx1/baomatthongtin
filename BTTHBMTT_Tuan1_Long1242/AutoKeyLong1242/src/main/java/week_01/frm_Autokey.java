@@ -12,7 +12,7 @@ import java.util.*;
  * @author nierlynguyen
  */
 public class frm_Autokey extends javax.swing.JFrame {
-    private AutokeyCipher akc;
+    private AutokeyLong1242 akc;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Autokey.class.getName());
 
@@ -20,7 +20,7 @@ public class frm_Autokey extends javax.swing.JFrame {
      * Creates new form frm_Caesar
      */
     public frm_Autokey() {
-        akc = new AutokeyCipher();
+        akc = new AutokeyLong1242();
         initComponents();
     }
 
@@ -78,7 +78,7 @@ public class frm_Autokey extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Courier 10 Pitch", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Transposition Cipher Demo");
+        jLabel1.setText("AutoKey Cipher Demo");
 
         jLabel2.setText("Plaintext:");
 
@@ -112,7 +112,7 @@ public class frm_Autokey extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(97, 97, 97))
+                .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

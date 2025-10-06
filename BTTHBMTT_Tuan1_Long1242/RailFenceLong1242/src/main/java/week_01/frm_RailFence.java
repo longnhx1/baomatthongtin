@@ -143,7 +143,7 @@ public class frm_RailFence extends javax.swing.JFrame {
         try {
             String plaintext = txt_plaintext.getText();
             int key = Integer.parseInt(txt_key.getText());
-            String ciphertext = RailFanceCipher.encrypt(plaintext, key);
+            String ciphertext = RailFanceLong1242.encrypt(plaintext, key);
             JOptionPane.showMessageDialog(this, "Encryption successful!");
             txt_ciphertext.setText(ciphertext);
             saveToFile(ciphertext);
@@ -156,7 +156,7 @@ public class frm_RailFence extends javax.swing.JFrame {
         try {
             String ciphertext = txt_ciphertext.getText();
             int key = Integer.parseInt(txt_key.getText());
-            String plaintext = RailFanceCipher.decrypt(ciphertext, key);
+            String plaintext = RailFanceLong1242.decrypt(ciphertext, key);
             JOptionPane.showMessageDialog(this, "Decryption successful!");
             txt_plaintext.setText(plaintext);
         } catch (NumberFormatException e) {

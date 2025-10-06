@@ -16,7 +16,7 @@ public class frm_Transposition extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frm_Transposition.class.getName());
 
     /**
-     * Creates new form frm_Caesar
+     * Creates new form frmCaesar
      */
     public frm_Transposition() {
         initComponents();
@@ -146,7 +146,7 @@ public class frm_Transposition extends javax.swing.JFrame {
 
         if (!plaintext.isEmpty() && !keyText.isEmpty()) { 
             int[] key = Arrays.stream(keyText.split(",")).mapToInt(Integer::parseInt).toArray();
-            TranspositionCipher cipher = new TranspositionCipher();
+            TranspositionLong1242 cipher = new TranspositionLong1242();
             String ciphertext = cipher.encrypt(plaintext, key);
             JOptionPane.showMessageDialog(this, "Encryption successful!");
             txt_ciphertext.setText(ciphertext);
@@ -164,7 +164,7 @@ public class frm_Transposition extends javax.swing.JFrame {
             int[] key = Arrays.stream(keyText.split(","))
                                 .mapToInt(Integer::parseInt)
                                 .toArray();
-            TranspositionCipher cipher = new TranspositionCipher();
+            TranspositionLong1242 cipher = new TranspositionLong1242();
             String plaintext = cipher.decrypt(ciphertext, key);
             JOptionPane.showMessageDialog(this, "Decryption successful!");
             txt_plaintext.setText(plaintext);

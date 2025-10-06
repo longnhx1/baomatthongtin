@@ -8,7 +8,7 @@ package week_01;
  *
  * @author Administrator
  */
-public class AutokeyCipher {
+public class AutokeyLong1242 {
     public String encrypt (String plaintext, String key) {
         plaintext = plaintext.toUpperCase();
         key = key.toUpperCase();
