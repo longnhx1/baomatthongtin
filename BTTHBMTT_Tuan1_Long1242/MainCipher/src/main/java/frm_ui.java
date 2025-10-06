@@ -195,27 +195,25 @@ public class frm_ui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(plaintextLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblKeyMatrix))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(keyLabel))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblKeyMatrix))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ciphertextLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(encyptBtn)
                             .addComponent(decryptBtn)
-                            .addComponent(opencipherBtn))
-                        .addGap(35, 35, 35))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ciphertextLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(opencipherBtn))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -269,6 +267,11 @@ public class frm_ui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Encryption successful!");
             txt_ciphertext.setText(ciphertext);
             // saveToFile(ciphertext);
+
+            // xuất key matrix
+            String keyMatrixStr = playFairCipher.getKeyMatrixString();
+            txt_keymatrix.setText(keyMatrixStr);
+
         } else {
             JOptionPane.showMessageDialog(this, "Please enter both plaintext and key.");
         }
@@ -344,12 +347,15 @@ public class frm_ui extends javax.swing.JFrame {
     public void PlayfairDecrypt(java.awt.event.ActionEvent evt) {
         String ciphertext = txt_ciphertext.getText();
         String key = txt_key.getText();
+        
 
         if (!ciphertext.isEmpty() && !key.isEmpty()) {
             PlayFairLong1242 playFairCipher = new PlayFairLong1242(key);
             String decryptedText = playFairCipher.decrypt(ciphertext);
             JOptionPane.showMessageDialog(this, "Decryption successful!");
-            txt_plaintext.setText(decryptedText);
+            txt_plaintext.setText(decryptedText);     
+
+            
         } else {
             JOptionPane.showMessageDialog(this, "Please enter both ciphertext and key.");
         }
@@ -483,6 +489,7 @@ public class frm_ui extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
