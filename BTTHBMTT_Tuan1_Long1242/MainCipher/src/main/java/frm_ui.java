@@ -78,7 +78,7 @@ public class frm_ui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Box1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ceasar Cipher", "Vigenère Cipher", "Railfence Cipher", "Playfail Cipher", "Transposition Cipher", "AutoKey Cipher" }));
+        Box1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ceasar Cipher", "Vigenère Cipher", "Railfence Cipher", "Playfair Cipher", "Transposition Cipher", "AutoKey Cipher" }));
         Box1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Box1ActionPerformed(evt);
@@ -111,6 +111,9 @@ public class frm_ui extends javax.swing.JFrame {
         txt_ciphertext.setColumns(20);
         txt_ciphertext.setRows(5);
         jScrollPane3.setViewportView(txt_ciphertext);
+
+        lblKeyMatrix.setVisible(false);
+        jScrollPane4.setVisible(false);
 
         encyptBtn.setText("Encypt");
         encyptBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -398,7 +401,7 @@ public class frm_ui extends javax.swing.JFrame {
             case "Railfence Cipher":
                 RailFenceEncrypt(evt);
                 break;
-            case "Playfail Cipher":
+            case "Playfair Cipher":
                 PlayfairEncrypt(evt);
                 break;
             case "Transposition Cipher":
@@ -416,7 +419,7 @@ public class frm_ui extends javax.swing.JFrame {
     private void Box1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Box1ActionPerformed
         // Hiện txt_keymatrix khi chọn Playfair Cipher
         String selectedCipher = (String) Box1.getSelectedItem();
-        if ("Playfail Cipher".equals(selectedCipher)) {
+        if ("Playfair Cipher".equals(selectedCipher)) {
             lblKeyMatrix.setVisible(true);
             jScrollPane4.setVisible(true);
         } else {
@@ -439,7 +442,7 @@ public class frm_ui extends javax.swing.JFrame {
             case "Railfence Cipher":
                 RailFenceDecrypt(evt);
                 break;
-            case "Playfail Cipher":
+            case "Playfair Cipher":
                 PlayfairDecrypt(evt);
                 break;
             case "Transposition Cipher":

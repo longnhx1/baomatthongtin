@@ -142,7 +142,7 @@
             <StringItem index="0" value="Ceasar Cipher"/>
             <StringItem index="1" value="Vigen&#xe8;re Cipher"/>
             <StringItem index="2" value="Railfence Cipher"/>
-            <StringItem index="3" value="Playfail Cipher"/>
+            <StringItem index="3" value="Playfair Cipher"/>
             <StringItem index="4" value="Transposition Cipher"/>
             <StringItem index="5" value="AutoKey Cipher"/>
           </StringArray>
