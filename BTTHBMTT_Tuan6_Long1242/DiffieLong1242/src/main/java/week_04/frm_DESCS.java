@@ -267,8 +267,7 @@ public class frm_DESCS extends javax.swing.JFrame {
                 }
                 
                 String ciphertext = ciphertextBuilder.toString().trim();
-                // Giả định txt_ciphertext tồn tại
-                // txt_ciphertext.setText(ciphertext);
+                txt_ciphertext.setText(ciphertext);
 
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this,
